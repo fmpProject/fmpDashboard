@@ -1,0 +1,50 @@
+
+<div>
+
+  <p-accordion>
+    <p-accordionTab *ngFor="let plan of  plansEsteYear"
+      [header]="plan.name">
+      
+        <div class="row">
+          <div class="col-xs-12 text-right">         
+            <button
+              (click)="deleteThisPlan(plan)"
+              class="btn btn-danger btn-xs btn-icon">
+                <i class="ion-trash-a"></i>
+                Delete this Plan
+            </button>
+          </div>
+        </div>  
+
+        PLAN_name: {{plan.name}}
+        <br>
+        PLAN_description: {{plan.description}}
+        <br>
+        <br>
+            <!--
+              222 EL_Plan::: {{plan | json}}
+              <hr>
+              <hr> 
+                CONTENIDO goals {{goals | json}}
+              <hr> 
+              <hr>
+            -->
+        PLAN_GOALS:
+
+        <goles-plam
+          [golsEstePlam]="(golesPlam | planGoals:plan:goals)"
+                    [targetsGoalPlan]="targetsGoalPlan"
+                    [targets]="targets"
+                      [goals]="goals"
+                      [plan]="plan"
+                          [targetsStructure]="targetsStructure">
+        </goles-plam>
+
+
+
+    </p-accordionTab>
+  </p-accordion>
+
+
+
+</div>

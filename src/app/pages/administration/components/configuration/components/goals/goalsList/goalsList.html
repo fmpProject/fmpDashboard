@@ -1,0 +1,78 @@
+
+
+<div>
+
+
+      <button
+        (click)="addGoal2Goal()" 
+        [disabled]="aGoalIsOnEditMode" 
+        class="btn btn-primary btn-xs btn-icon">
+          <i class="ion-plus-round"></i>
+          Add Goal
+      </button>
+
+
+      <p-accordion>
+        <!--OJO: PENSE QUE ERA LA FORMA CORRECTA...REVISAR BIEN !!!  
+        <p-accordionTab *ngFor="let editItem of goals"-->
+        <p-accordionTab *ngFor="let editItem of _goals"
+          [header]="editItem.item.name ? editItem.item.name : 'New Task'">  <!--[isOpen]="editItem.item.name ? false : true"-->
+            <!--CONTENIDO editItem (Goal) -->
+            <goal-card
+              [hidden]="editItem.editing"
+              [goal]="editItem.item">
+            </goal-card>
+            <button
+              [hidden]="editItem.editing"
+              (click)="editItem.editing = true; aGoalIsOnEditMode = true;"
+              class="btn btn-primary btn-xs btn-icon">
+                <i class="ion-edit"></i>
+                Edit
+            </button>
+            <goal-editor
+              (saved)="onSaved(editItem, $event)"
+              (canceled)="onCanceled(editItem)"
+              [hidden]="!editItem.editing"
+              [goal]="editItem.item">
+            </goal-editor>
+
+            
+              <div 
+              [hidden]="!editItem.item.id" 
+              style="background-color: #deaf7a;">
+
+
+                    <targets-selector
+                      [defTargetsTreeNodes]="defTargetsTreeNodes"
+                      [defTargsGoalsArray]="defTargsGoalsArray"
+                      [goalId]="editItem.item.id">
+                    </targets-selector>
+                        
+                          <!--<targets-selector
+                            [dropdownItems]="dropdownItems_defTargets"
+                            [targets_goals]="targets_goals"
+                            [goalId]="editItem.item.id">
+                          </targets-selector>-->
+                        
+
+
+                                        <!--<div class="col-lg-12 col-md-12">
+                                            777 masNUEOS NEWWW  GOALS:
+
+                                            <p-tree [value]="files777" selectionMode="checkbox" [(selection)]="selectedFiles777"></p-tree>
+                                            
+                                            <div>Selected Nodes: <span *ngFor="let file of selectedFiles777">{{file.label}} </span></div>
+
+                                            <div>Selected DATA: <span *ngFor="let file of selectedFiles777; let i = index;">{{i}}=({{file.data}}), </span></div>
+                                        </div>                    -->
+
+              </div>
+            
+
+
+        </p-accordionTab>
+      </p-accordion>
+
+
+</div>
+

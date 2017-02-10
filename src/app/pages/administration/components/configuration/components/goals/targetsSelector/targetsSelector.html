@@ -1,0 +1,44 @@
+
+<div>
+  <h3>Goal's Targets</h3>
+
+    ng-select (TARGETS)
+    <hr>
+    goalId={{goalId}}    
+    <hr>
+    defTargsGoalsArray={{defTargsGoalsArray | json}}
+    <!--<hr>
+    _targets_goals={{_targets_goals | json}}
+    <hr>
+    targets_goals={{targets_goals | json}}-->
+      <!--<hr>
+      items={{items | json}}-->
+
+
+      <hr>
+      defTargetsTreeNodes={{defTargetsTreeNodes}}
+
+
+
+      <div class="col-lg-12 col-md-12">
+          TEzzTT defTargetsTreeNodes:
+
+          <p-tree [value]="defTargetsTreeNodes" selectionMode="checkbox" [(selection)]="selectedTargetsTreeNodes" (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
+          
+          <div>Selected Nodes: <span *ngFor="let targetTreeNode of selectedTargetsTreeNodes">{{targetTreeNode.label}} </span></div>
+
+          <div>Selected DATA: <span *ngFor="let targetTreeNode of selectedTargetsTreeNodes; let i = index;">{{i}}=({{targetTreeNode.data}}), </span></div>
+      </div>      
+
+
+
+
+
+
+
+
+
+
+</div>
+
+

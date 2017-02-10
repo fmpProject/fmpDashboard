@@ -1,0 +1,34 @@
+<div class="widgets">
+
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      
+      <p-tabView>
+          <p-tabPanel header="Offices, Teams & Users">
+              <officezz-component></officezz-component>
+          </p-tabPanel>               
+
+          <p-tabPanel header="Targets & MBFs">
+
+            <categoryzz-component *ngIf="mbfs_n_tasks_n_targets_ready"></categoryzz-component>
+
+            <!--<categoryzz-component *ngIf="tasks_n_targets_ready"></categoryzz-component>-->
+             
+            <!--<categoryzz-component *ngIf="teztTEZT_targetsReady"></categoryzz-component>-->
+
+            <!--<categoryzz-component></categoryzz-component>-->
+
+          </p-tabPanel>
+
+          <p-tabPanel header="Goals">
+              <goalzz-component></goalzz-component>
+          </p-tabPanel>
+
+          <p-tabPanel header="Plan Types">
+              <planTypezz-component></planTypezz-component>
+          </p-tabPanel>          
+      </p-tabView>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+    
+    
+<div>
+
+  <div class="col-lg-6 col-md-6">      
+    <label>Plan's year</label>
+    <!--<select class="form-control"  required>
+            <option  *ngFor="let y of years"  [selected]="yy === y ">{{y}}</option>    
+    </select>-->
+    <select class="form-control">
+            <option
+              value=""
+              selected="true"
+              disabled="true"
+               style="display: none;">
+                Select Plan's Year
+            </option>      
+            <option *ngFor="let y of years"
+              [value]="y.id">
+                {{y.name}}
+            </option>
+              <!--<option *ngFor="let y of years"
+                [selected]="yy === y"
+                [value]="y">
+                  {{y}}
+              </option>   -->
+    </select>
+  </div>
+
+</div>

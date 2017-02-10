@@ -1,0 +1,17 @@
+
+<div class="selectivity-input example-input"
+     style="width: 300px; margin-bottom: 20px;">
+  <h3>PlanType's Offices</h3>
+
+  <ng-select (data)="value"
+              [multiple]="true"
+              [items]="items"
+              [active]="offices_planTypes"
+              [disabled]="disabled"
+              (data)="refreshValue($event)"
+              (selected)="selected($event)"
+              (removed)="removed($event)"
+              placeholder="Click to Add Offices"></ng-select>
+
+  <pre>{{itemsToString(value)}}</pre>
+</div>

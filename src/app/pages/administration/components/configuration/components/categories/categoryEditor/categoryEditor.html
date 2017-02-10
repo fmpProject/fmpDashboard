@@ -1,0 +1,33 @@
+
+    <div>
+      <!--<span>CategoryID:</span>
+      <span>{{category.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="category.name"/>
+      <input [(ngModel)]="category.description"/>           -->
+
+      <div class="form-group">
+        <label for="category_name">Category Name</label>
+        <input [(ngModel)]="category.name" type="text" class="form-control" id="category_name" placeholder="Category Name">
+      </div>
+
+      <div class="form-group">
+        <label for="category_description">Category Description</label>
+        <textarea [(ngModel)]="category.description" placeholder="Category Description" class="form-control" id="category_description"></textarea>
+      </div>
+
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

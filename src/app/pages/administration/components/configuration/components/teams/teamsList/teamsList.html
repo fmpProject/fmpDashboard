@@ -1,0 +1,64 @@
+
+
+<div>
+
+
+      <p-accordion>
+        <p-accordionTab *ngFor="let editItem of _teams"
+          [header]="editItem.item.name ? editItem.item.name : 'New Team'">  <!--[isOpen]="editItem.item.name ? false : true"-->
+          
+            <ba-card
+              title="Team's Info"
+              baCardClass="with-scroll">
+                <div class="col-lg-11 col-md-11">
+                  <team-card
+                    [hidden]="editItem.editing"
+                    [team]="editItem.item">
+                  </team-card>
+                </div>
+                <div class="col-lg-1 col-md-1">
+                  <button
+                    [hidden]="editItem.editing"
+                    (click)="editItem.editing = true; aTeamIsOnEditMode = true;"
+                    class="btn btn-primary btn-xs btn-icon">
+                      <i class="ion-edit"></i>
+                      Edit
+                  </button>
+                </div>
+
+                <div class="col-lg-12 col-md-12">
+                  <team-editor
+                    (saved)="onSaved(editItem, $event)"
+                    (canceled)="onCanceled(editItem)"
+                    [hidden]="!editItem.editing"
+                    [team]="editItem.item">
+                  </team-editor>
+                </div>
+            </ba-card>
+
+            <ba-card
+              title="Team's Users"
+              baCardClass="with-scroll"
+              [hidden]="!editItem.item.id"
+              [hidden]="editItem.editing">
+                <users-team 
+                  [teamId]="editItem.item.id">
+                </users-team>
+            </ba-card>
+
+        </p-accordionTab>
+      </p-accordion>
+
+
+      <button
+        (click)="addTeam2Team()" 
+        [disabled]="aTeamIsOnEditMode" 
+        class="btn btn-primary btn-xs btn-icon">
+          <i class="ion-plus-round"></i>
+          Add Team
+      </button>
+
+
+
+</div>
+

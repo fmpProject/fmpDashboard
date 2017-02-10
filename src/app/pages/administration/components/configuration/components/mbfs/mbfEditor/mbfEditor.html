@@ -1,0 +1,33 @@
+
+    <div>
+      <!--<span>MbfID:</span>
+      <span>{{mbf.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="mbf.name"/>
+      <input [(ngModel)]="mbf.description"/>           -->
+
+      <div class="form-group">
+        <label for="mbf_name">Mbf Name</label>
+        <input [(ngModel)]="mbf.name" type="text" class="form-control" id="mbf_name" placeholder="Mbf Name">
+      </div>
+
+      <div class="form-group">
+        <label for="mbf_description">Mbf Description</label>
+        <textarea [(ngModel)]="mbf.description" placeholder="Mbf Description" class="form-control" id="mbf_description"></textarea>
+      </div>
+
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

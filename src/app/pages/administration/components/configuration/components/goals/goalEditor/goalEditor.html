@@ -1,0 +1,23 @@
+
+    <div>
+      <span>GoalID:</span>
+      <span>{{goal.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="goal.name"/>
+      <input [(ngModel)]="goal.description"/>           
+      
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

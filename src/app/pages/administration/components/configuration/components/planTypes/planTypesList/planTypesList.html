@@ -1,0 +1,60 @@
+
+
+<div>
+
+
+      <button
+        (click)="addPlanType2PlanType()" 
+        [disabled]="aPlanTypeIsOnEditMode" 
+        class="btn btn-primary btn-xs btn-icon">
+          <i class="ion-plus-round"></i>
+          Add PlanType
+      </button>
+
+
+      <p-accordion>
+        <!--OJO: PENSE QUE ERA LA FORMA CORRECTA...REVISAR BIEN !!!  
+        <p-accordionTab *ngFor="let editItem of planTypes"-->
+        <p-accordionTab *ngFor="let editItem of _planTypes"
+          [header]="editItem.item.name ? editItem.item.name : 'New Task'">  <!--[isOpen]="editItem.item.name ? false : true"-->
+            <!--CONTENIDO editItem (PlanType) -->
+            <planType-card
+              [hidden]="editItem.editing"
+              [planType]="editItem.item">
+            </planType-card>
+            <button
+              [hidden]="editItem.editing"
+              (click)="editItem.editing = true; aPlanTypeIsOnEditMode = true;"
+              class="btn btn-primary btn-xs btn-icon">
+                <i class="ion-edit"></i>
+                Edit
+            </button>
+            <planType-editor
+              (saved)="onSaved(editItem, $event)"
+              (canceled)="onCanceled(editItem)"
+              [hidden]="!editItem.editing"
+              [planType]="editItem.item">
+            </planType-editor>
+
+            
+              <div 
+              [hidden]="!editItem.item.id" 
+              style="background-color: #deaf7a;">
+
+
+                    <offices-selector
+                      [dropdownItems]="dropdownItems_defOffices"
+                      [offices_planTypes]="offices_planTypes"
+                      [planTypeId]="editItem.item.id">
+                    </offices-selector>
+
+              </div>
+            
+
+
+        </p-accordionTab>
+      </p-accordion>
+
+
+</div>
+

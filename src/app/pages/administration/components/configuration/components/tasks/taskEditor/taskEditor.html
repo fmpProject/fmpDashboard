@@ -1,0 +1,33 @@
+
+    <div>
+      <!--<span>TaskID:</span>
+      <span>{{task.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="task.name"/>
+      <input [(ngModel)]="task.description"/>           -->
+
+      <div class="form-group">
+        <label for="task_name">Task Name</label>
+        <input [(ngModel)]="task.name" type="text" class="form-control" id="task_name" placeholder="Task Name">
+      </div>
+
+      <div class="form-group">
+        <label for="task_description">Task Description</label>
+        <textarea [(ngModel)]="task.description" placeholder="Task Description" class="form-control" id="task_description"></textarea>
+      </div>
+
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

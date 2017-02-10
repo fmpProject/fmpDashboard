@@ -1,0 +1,34 @@
+
+    <div>
+      <!--<span>UserID:</span>
+      <span>{{user.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="user.name"/>
+      <input [(ngModel)]="user.description"/>           -->
+      
+
+      <div class="form-group">
+        <label for="user_name">User Name</label>
+        <input [(ngModel)]="user.name" type="text" class="form-control" id="user_name" placeholder="User Name">
+      </div>
+
+      <div class="form-group">
+        <label for="user_description">User Description</label>
+        <textarea [(ngModel)]="user.description" placeholder="User Description" class="form-control" id="user_description"></textarea>
+      </div>
+
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

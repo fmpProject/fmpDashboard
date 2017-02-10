@@ -1,0 +1,185 @@
+
+<div>
+
+
+
+
+
+  <p-accordion>
+    <p-accordionTab *ngFor="let golDelPlan of golsEstePlam"
+      [header]="'GOAL ' + golDelPlan.indexGoal + ' (' + golDelPlan.golcito.name + ')'">
+      
+        <!--<div class="row">
+          <button
+            (click)="deleteThisGoal(golDelPlan)"
+            class="btn btn-danger btn-xs btn-icon">
+              <i class="ion-trash-a"></i>
+              Delete this Goal
+          </button> 
+        </div>-->
+
+        <div class="row">
+          <!--<div class="col-xs-4 text-left">
+            <div class="info-label">Total Visits</div>
+            <div>47,512</div>
+          </div>
+          <div class="col-xs-4 text-center">
+            <div class="info-label">New Visits</div>
+            <div>9,217</div>
+          </div>-->
+          <div class="col-xs-12 text-right">
+            
+            <button
+              (click)="deleteThisGoal(golDelPlan)"
+              class="btn btn-danger btn-xs btn-icon">
+                <i class="ion-trash-a"></i>
+                Delete this Goal
+            </button>             
+            
+            <!--<div class="info-label">Sales</div>
+            <div>2,928</div>-->
+          </div>
+        </div>        
+        
+        GOAL_name: {{golDelPlan.name}}
+        <br>
+        GOAL_description: {{golDelPlan.description}}
+        <br>
+        <br>
+
+        
+
+
+
+
+        <!--WooW !!!
+        <br>
+        CONTENIDO golDelPlan {{golDelPlan.name}}
+        <br>
+        333 EL_golDelPlan::: {{golDelPlan | json}}-->
+
+            <!--<hr><hr><hr>-->
+            <!--CONTENIDO targetsGoalPlan {{targetsGoalPlan | json}} -->
+            <!--yeah!!!!!! CONTENIDO targetsGoalPlan --FILTRADO_pa %% GOAL %% -- {{targetsGoalPlan | targetsGoalPlan:golDelPlan | json}}
+            <hr><hr><hr>-->
+
+              GOAL_TARGETS:
+              <targets-goal
+                [targets]="targets"
+                [targetsEsteGoal]="(targetsGoalPlan | targetsGoalPlan:golDelPlan:targets)"
+                    [targetsStructure]="targetsStructure">
+              </targets-goal>
+
+
+
+    </p-accordionTab>
+  </p-accordion>                        
+      <!--
+          CONTENIDO golesPlam {{golesPlam | json}}  
+      -->
+        <!--
+            CONTENIDO golesPlam ==FILTRADO_paPLAN== {{golesPlam | planGoals:plan:goals | json}}
+
+        -->
+
+
+
+
+
+  <div>
+    <button
+      (click)="openNewGoalCreator()"
+      [hidden]="creatingGoal"
+      class="btn btn-primary btn-xs btn-icon">
+        <i class="ion-plus-round"></i>
+        Create New Goal
+    </button>    
+    
+    <p-panel
+      [hidden]="!creatingGoal"
+      header="New Goal">
+
+
+
+
+      <div class="row">
+
+        <!--<div class="col-lg-12 col-md-12">
+          <div class="form-group">
+            <label for="newGoal_name">newGoal Name</label>
+            <input [(ngModel)]="newGoal.name" type="text" class="form-control" id="newGoal_name" placeholder="newGoal Name">
+          </div>
+
+          <div class="form-group">
+            <label for="newGoal_description">newGoal Description</label>
+            <textarea [(ngModel)]="newGoal.description" placeholder="newGoal Description" class="form-control" id="newGoal_description"></textarea>
+          </div>
+        </div>-->
+
+
+        <div class="col-lg-12 col-md-12">
+
+
+          <!--<div class="col-lg-6 col-md-6">
+            <label>Goal</label>
+            <select
+              [(ngModel)]="newGoal.indexGoal"
+              class="form-control">
+                <option *ngFor="let goalIdx of goalIndexes; let idGoalIdx = index;"
+                  [value]="(idGoalIdx+1)">
+                  {{goalIdx}}
+                </option>    
+            </select>
+          </div>-->
+
+          <div class="col-lg-6 col-md-6">
+            <label>Goal</label>
+            <select
+              [(ngModel)]="newGoal.goalId"
+              class="form-control">
+                <option *ngFor="let goal of goals"
+                  [value]="goal.id">
+                  {{goal.name}}
+                </option>    
+            </select>
+          </div>
+
+        </div>
+
+        <div class="col-lg-12 col-md-12">
+          <div class="col-lg-6 col-md-6">
+            <button
+              (click)="cancelGoalCreation()"
+              class="btn btn-warning btn-xs btn-icon">
+                <i class="ion-close-round"></i>
+                CANCEL NEW GOAL
+            </button>  
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <button
+              (click)="saveGoalCreation()"
+              class="btn btn-primary btn-xs btn-icon">
+                <i class="ion-android-download"></i>
+                SAVE New Goal
+            </button>             
+          </div>
+        </div> 
+
+      </div>
+
+
+
+
+    </p-panel>
+
+  </div>
+
+
+
+
+
+
+
+
+
+</div>

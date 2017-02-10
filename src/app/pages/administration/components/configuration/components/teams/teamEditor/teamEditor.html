@@ -1,0 +1,34 @@
+
+    <div>
+      <!--<span>TeamID:</span>
+      <span>{{team.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="team.name"/>
+      <input [(ngModel)]="team.description"/>           -->
+
+
+      <div class="form-group">
+        <label for="team_name">Team Name</label>
+        <input [(ngModel)]="team.name" type="text" class="form-control" id="team_name" placeholder="Team Name">
+      </div>
+
+      <div class="form-group">
+        <label for="team_description">Team Description</label>
+        <textarea [(ngModel)]="team.description" placeholder="Team Description" class="form-control" id="team_description"></textarea>
+      </div>
+
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

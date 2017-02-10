@@ -1,0 +1,34 @@
+
+    <div>
+
+      <!--<span>OfficeID:</span>
+      <span>{{office.id}}</span>
+      <span>Name:</span>
+      <input [(ngModel)]="office.name"/>
+      <input [(ngModel)]="office.description"/>-->
+
+      <div class="form-group">
+        <label for="office_name">Office Name</label>
+        <input [(ngModel)]="office.name" type="text" class="form-control" id="office_name" placeholder="Office Name">
+      </div>
+
+      <div class="form-group">
+        <label for="office_description">Office Description</label>
+        <textarea [(ngModel)]="office.description" placeholder="Office Description" class="form-control" id="office_description"></textarea>
+      </div>             
+      
+      <div>
+        <button 
+          (click)="onSaved()"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+        <button 
+          (click)="onCanceled()"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>
+    </div>

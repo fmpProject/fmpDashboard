@@ -1,0 +1,88 @@
+
+
+<div>
+
+
+      <!--<button
+        (click)="addOffice2Office()" 
+        [disabled]="aOfficeIsOnEditMode" 
+        class="btn btn-primary btn-xs btn-icon">
+          <i class="ion-plus-round"></i>
+          Add Office
+      </button>-->
+
+<!--<p-growl [value]="msgs"></p-growl>-->
+
+      <p-accordion>
+        <p-accordionTab *ngFor="let editItem of _offices"
+          [header]="editItem.item.name ? editItem.item.name : 'New Office'">
+              <!--<p-accordionTab *ngFor="let editItem of _offices">
+                  <header>
+                    <div class="ui-helper-clearfix">
+                        <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">(Custom Header) ,,, {{editItem.item.name ? editItem.item.name : 'New Office'}}</span>
+                        
+                        <button
+                          [style]="{'float':'right'}"
+                          [hidden]="editItem.editing"
+                          (click)="editItem.editing = true; aOfficeIsOnEditMode = true;"
+                          class="btn btn-primary btn-xs btn-icon">
+                            <i class="ion-edit"></i>
+                            Edit
+                        </button>
+
+                          <p-splitButton [style]="{'float':'right'}" label="Save" icon="fa-check" (onClick)="save()" [model]="items"></p-splitButton>
+                    </div>
+                  </header>-->
+
+            <ba-card
+              title="Office's Info"
+              baCardClass="with-scroll">
+                <div class="col-lg-11 col-md-11">
+                  <office-card
+                    [hidden]="editItem.editing"
+                    [office]="editItem.item">
+                  </office-card>
+                </div>
+                <div class="col-lg-1 col-md-1">
+                  <button
+                    [hidden]="editItem.editing"
+                    (click)="editItem.editing = true; aOfficeIsOnEditMode = true;"
+                    class="btn btn-primary btn-xs btn-icon">
+                      <i class="ion-edit"></i>
+                      Edit
+                  </button>
+                </div>
+
+                <div class="col-lg-12 col-md-12">
+                  <office-editor
+                    (saved)="onSaved(editItem, $event)"
+                    (canceled)="onCanceled(editItem)"
+                    [hidden]="!editItem.editing"
+                    [office]="editItem.item">
+                  </office-editor>
+                </div>
+            </ba-card>
+
+            <ba-card
+              title="Office's Teams"
+              baCardClass="with-scroll"
+              [hidden]="!editItem.item.id"
+              [hidden]="editItem.editing">
+                <teams-office 
+                  [officeId]="editItem.item.id">
+                </teams-office>
+            </ba-card>
+        </p-accordionTab>
+      </p-accordion>
+
+
+      <button
+        (click)="addOffice2Office()" 
+        [disabled]="aOfficeIsOnEditMode" 
+        class="btn btn-primary btn-xs btn-icon">
+          <i class="ion-plus-round"></i>
+          Add Office
+      </button>
+
+</div>
+

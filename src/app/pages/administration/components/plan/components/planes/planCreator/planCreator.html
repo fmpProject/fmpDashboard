@@ -1,0 +1,64 @@
+
+<div>
+  <div class="row">
+
+    <!--<div class="col-lg-12 col-md-12">
+      <span>Name:</span>
+      <input [(ngModel)]="newPlan.name"/>
+      <span>description:</span>
+      <input [(ngModel)]="newPlan.description"/>  
+    </div>-->
+
+    <div class="col-lg-12 col-md-12">
+      <div class="form-group">
+        <label for="newPlan_name">NewPlan Name</label>
+        <input [(ngModel)]="newPlan.name" type="text" class="form-control" id="newPlan_name" placeholder="NewPlan Name">
+      </div>
+
+      <div class="form-group">
+        <label for="newPlan_description">NewPlan Description</label>
+        <textarea [(ngModel)]="newPlan.description" placeholder="NewPlan Description" class="form-control" id="newPlan_description"></textarea>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-lg-12 col-md-12">
+      <year-picker (change)="onYearChange($event.target.value)"></year-picker> 
+
+      <div class="col-lg-6 col-md-6">
+        <label>Plan Type</label>
+        <select class="form-control">
+                <option  *ngFor="let planType of planTypes">{{planType.name}}</option>    
+        </select>
+      </div>
+    </div>
+
+
+    <div class="col-lg-12 col-md-12">
+
+      <p-growl [value]="msgs"></p-growl>
+
+      <div class="col-lg-6 col-md-6">
+        <button 
+          (click)="onCanceledPlanCreation();"
+          class="btn btn-warning btn-xs btn-icon">
+            <i class="ion-close-round"></i>
+            Cancel
+        </button>
+      </div>  
+
+      <div class="col-lg-6 col-md-6">
+        <button 
+          (click)="onSavedPlanCreation();"
+          class="btn btn-primary btn-xs btn-icon">
+            <i class="ion-android-download"></i>
+            Save
+        </button>
+      </div>                    
+
+    </div>
+
+  </div>
+</div>

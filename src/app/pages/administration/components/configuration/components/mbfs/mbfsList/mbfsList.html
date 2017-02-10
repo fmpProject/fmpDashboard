@@ -1,0 +1,69 @@
+
+
+<div>
+
+
+    <p-accordion>
+        <p-accordionTab *ngFor="let editItem of _mbfs"
+          [header]="editItem.item.name ? editItem.item.name : 'New Mbf'">
+          
+            <ba-card
+              title="MBF's Info"
+              baCardClass="with-scroll">
+                <div class="col-lg-11 col-md-11">
+                  <mbf-card
+                    [hidden]="editItem.editing"
+                    [mbf]="editItem.item">
+                  </mbf-card>
+                </div>
+                <div class="col-lg-1 col-md-1">
+                  <button
+                    [hidden]="editItem.editing"
+                    (click)="editItem.editing = true; aMbfIsOnEditMode = true;"
+                    class="btn btn-primary btn-xs btn-icon">
+                      <i class="ion-edit"></i>
+                      Edit
+                  </button>
+                </div>
+
+                <div class="col-lg-12 col-md-12">
+                  <mbf-editor
+                    (saved)="onSaved(editItem, $event)"
+                    (canceled)="onCanceled(editItem)"
+                    [hidden]="!editItem.editing"
+                    [mbf]="editItem.item">
+                  </mbf-editor>
+                </div>
+            </ba-card>
+
+            <ba-card
+              title="MBF's Tasks"
+              baCardClass="with-scroll"
+              [hidden]="!editItem.item.id"
+              [hidden]="editItem.editing">
+
+
+                <tasks-mbf 
+                  [mbfId]="editItem.item.id">
+                </tasks-mbf>
+
+                
+            </ba-card>
+
+        </p-accordionTab>
+    </p-accordion>
+
+
+
+    <button
+      (click)="addMbf2Mbf()" 
+      [disabled]="aMbfIsOnEditMode" 
+      class="btn btn-primary btn-xs btn-icon">
+        <i class="ion-plus-round"></i>
+        Add Mbf
+    </button>
+
+
+
+</div>
+

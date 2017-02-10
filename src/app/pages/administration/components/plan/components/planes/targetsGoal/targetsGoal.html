@@ -1,0 +1,135 @@
+
+<div>
+
+
+  <!--<div class="row">
+
+    <div class="col-lg-12 col-md-12">
+
+      <div class="col-lg-6 col-md-6">
+        HOLA:targets
+      </div>  
+
+      <div class="col-lg-6 col-md-6">
+        MUNDO;goal
+      </div>                    
+
+    </div> 
+
+  </div>-->
+
+
+
+
+
+                                                                                    <!--WooW !!!
+                                                                                    <br>
+                                                                                    CONTENIDO golPlam {{golPlam.name}}
+                                                                                    <br>
+                                                                                    333 EL_golPlam::: {{golPlam | json}}-->
+
+                                                                                        <!--<hr><hr><hr>-->
+                                                                                        <!--CONTENIDO targetsGoalPlan {{targetsGoalPlan | json}} -->
+                                                                                        <!--yeah!!!!!! CONTENIDO targetsGoalPlan --FILTRADO_pa %% GOAL %% -- {{targetsGoalPlan | targetsGoalPlan:golPlam | json}}
+                                                                                        <hr><hr><hr>-->
+
+
+
+
+
+  <button
+    (click)="createNewTargetYUKA()"
+    class="btn btn-primary btn-xs btn-icon">
+      <i class="ion-plus-round"></i>
+      RicardoMAN ::: Create New Target YUKA
+  </button> 
+  <br>
+
+  <p-accordion>
+    <p-accordionTab *ngFor="let targetDelGol of  targetsEsteGoal"
+      [header]="'TARGET ' +  ' (' + targetDelGol.name + ')' + ' [' + targetDelGol.target.name + ']'">
+      <!--<p-accordionTab *ngFor="let targetGoalPlan of  (targetsGoalPlan | targetsGoalPlan:golPlam:targets)"
+        [header]="'TARGET ' +  ' (' + targetGoalPlan.name + ')' + ' [[(' + targetGoalPlan.target.name + ')]]'">-->
+      
+        TARGET_name: {{targetDelGol.name}}
+        <br>
+        TARGET_description: {{targetDelGol.description}}
+        <br>
+
+
+<hr><hr>
+        files777 __= HOLA_CHIKU !!!! ??????? 
+          <div class="col-lg-12 col-md-12">
+            <hr>
+            <hr>
+            <hr>
+              files777 __= CHU masNUEOS NEWWW  GOALS:
+
+              <p-tree [value]="files777" selectionMode="checkbox" [(selection)]="selectedFiles777" (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
+            <hr>
+            <hr>
+              <div>files777 __= Selected Nodes: <span *ngFor="let file of selectedFiles777">selNODE=={{file.label}} </span></div>
+            <hr>
+            <hr>
+              <div>files777 __= Selected DATA: <span *ngFor="let file of selectedFiles777; let i = index;">selDATA=={{i}}=({{file.data}}), </span></div>
+          </div>
+<hr><hr>
+! ! ? ? == 112233 los_targetsStructure::: {{targetsStructure | json}}
+<hr><hr>
+                                              
+          <!--targetDelGol_name: {{targetDelGol.name}}
+          <br>                                        -->
+          
+            YUPPiii !!!
+            <br>
+            CONTENIDO targetDelGol {{targetDelGol.name}}
+            <br>
+            444 EL_targetDelGol::: {{targetDelGol | json}}
+            <br>
+        
+          <hr><hr>
+          999 los_targets::: {{targets | json}}
+          <hr><hr>
+        
+        HOLA_CHIKU !!!! ??????? 
+          <div class="col-lg-12 col-md-12">
+            <hr>
+            <hr>
+            <hr>
+              CHU masNUEOS NEWWW  GOALS:
+
+              <p-tree [value]="files" selectionMode="checkbox" [(selection)]="selectedFiles"></p-tree>
+              
+              <div>Selected Nodes: <span *ngFor="let file of selectedFiles">{{file.label}} </span></div>
+
+              <div>Selected DATA: <span *ngFor="let file of selectedFiles; let i = index;">{{i}}=({{file.data}}), </span></div>
+          </div>
+
+
+        <!--555 EL_targetDelGol::: {{targetDelGol.target | json}}
+        <br>
+        <br>-->
+        
+
+        <!--<hr><hr>
+        666 EL_targetDelGol::: {{targetDelGol.target.name | async}}
+        <hr><hr>-->
+
+    </p-accordionTab>
+  </p-accordion>                                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
